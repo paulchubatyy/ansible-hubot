@@ -17,7 +17,7 @@ RestartSec=10
 ; Configure Hubot environment variables, make sure to use quotes around whitespace as shown below.
 Environment={% for var, value in hubot_env.items() %}{{ var }}="{{ value }}" {% endfor %}
 
-ExecStart=/path/to/hubot/bin/hubot --adapter {{ hubot_adapter }}
+ExecStart={{ hubot_repository_path }}bin/hubot --adapter {{ hubot_adapter }}
 
 [Install]
 WantedBy=multi-user.target
