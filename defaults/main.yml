@@ -1,0 +1,9 @@
+---
+hubot_repository_url: https://github.com/github/hubot.git
+hubot_repository_version: master
+hubot_repository_path: /home/hubot/code
+hubot_user: hubot
+hubot_adapter: slack
+hubot_env:
+  HUBOT_SLACK_TOKEN: ololo
+  HUBOT_SOMETHING_ELSE: trololo

@@ -1,0 +1,23 @@
+---
+- name: Clone the hubot repository
+  become_user: "{{ hubot_user }}"
+  git:
+    repo: "{{ hubot_repository_url }}"
+    version: "{{ hubot_repository_version }}"
+    dest: "{{ hubot_repository_path }}"
+
+- name: NPM Install
+  become_user: "{{ hubot_user }}"
+  npm:
+    path: "{{ hubot_repository_path }}"
+    production: yes
+
+- name: Create the systemd service
+  template:
+    src: hubot.service.j2
+    dest: /etc/systemd/system/hubot.service
+    owner: root
+    group: root
+    mode: 0744
+  notify:
+    - hubot restart

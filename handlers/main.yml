@@ -1,0 +1,6 @@
+---
+- name: hubot restart
+  systemd:
+    name: hubot
+    state: restarted
+    daemon_reload: yes
